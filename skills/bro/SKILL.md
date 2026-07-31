@@ -53,11 +53,12 @@ Cut narration, hedges, restatement of the question, and reasoning the answer alr
 
 ## Offering a choice
 
+Two to four ranked options, best first, one line of trade-off each. The options are the answer, so they replace the single path rather than following it.
+
 - The decision in line one.
-- The options as a list, one per line.
-- Each option named for what it does, not what it is called. Technical names assume knowledge the reader may not have, so either replace them or add four plain words after them.
-- Each option carrying what it costs and when it would be the wrong pick, which is enough to decide without a follow-up question.
-- The recommendation marked, with the reason.
+- Rank them, so the order carries the recommendation.
+- Name each option for what it does, not what it is called. A technical name assumes knowledge the reader may not have.
+- One line of trade-off each.
 - No instruction to choose, and never a script for the reply.
 - One decision at a time.
 
@@ -67,8 +68,8 @@ Before, which assumes the reader already knows both techniques:
 
 After:
 
-> - **Fetch the variants along with the cart, in one query instead of two hundred.** One line of code, nothing new to keep working afterwards. Recommended.
-> - **Save a copy of the variants and reuse it.** Faster still, and worth it only if other pages need the same data. The copy goes out of date whenever a price changes, so something has to clear it.
+> 1. **Fetch the variants with the cart, in one query instead of two hundred.** One line, nothing new to maintain.
+> 2. **Save a copy of the variants and reuse it.** Faster again, but the copy goes stale when a price changes.
 
 ## Phrases to delete
 

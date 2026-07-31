@@ -20,7 +20,7 @@ Type `/bro`. It also fires on "you're waffling", "get to the point", "stop telli
 - The answer on line one, nothing in front of it.
 - Bullets after, one idea and one line each.
 - A table when two or more things are compared on the same attributes.
-- Options at the end as a list, each named for what it does rather than what it is called, carrying its cost and the case where it would be wrong, with the recommendation marked.
+- Two to four ranked options at the end, best first, one line of trade-off each, named for what they do rather than what they are called.
 - Numbered steps, time estimates in concrete units, and a restated position for multi-step work.
 - A named list of openers, closers, and error phrases that never survive.
 - A delete pass before sending: the announcing first sentence, the recap, the sidebar, the empty hedge, the idiom.
