@@ -248,7 +248,7 @@ def run_evaluations(args: argparse.Namespace) -> int:
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with args.output.open("a", encoding="utf-8") as destination:
-        for trial in range(1, args.trials + 1):
+        for trial in range(1 + args.trial_offset, args.trials + 1 + args.trial_offset):
             for case in cases:
                 if args.case and case["id"] not in args.case:
                     continue
@@ -272,7 +272,7 @@ def run_evaluations(args: argparse.Namespace) -> int:
                         check=False,
                         capture_output=True,
                         text=True,
-                        cwd=ROOT,
+                        cwd=args.cwd or ROOT,
                     )
                     if completed.returncode == 0:
                         break
@@ -337,6 +337,10 @@ def _build_parser() -> argparse.ArgumentParser:
     run.add_argument("--condition-skill", type=Path)
     run.add_argument("--case", action="append")
     run.add_argument("--trials", type=int, default=3)
+    run.add_argument("--trial-offset", type=int, default=0,
+                     help="Number added to each trial index, so state-mutating runs can be executed one trial at a time against a fresh fixture")
+    run.add_argument("--cwd", type=Path, default=None,
+                     help="Working directory for runner calls; use a scratch fixture repo when tools are enabled")
     run.add_argument("--retries", type=int, default=2)
     run.add_argument("--budget-usd", type=float, default=25.0)
     run.add_argument("--allow-unmetered", action="store_true")
@@ -366,7 +370,7 @@ def main(argv: list[str] | None = None) -> int:
         conditions = ["baseline", "candidate"]
         if args.include_comparator:
             conditions.append("comparator")
-        for trial in range(1, args.trials + 1):
+        for trial in range(1 + args.trial_offset, args.trials + 1 + args.trial_offset):
             for case in cases:
                 for condition in conditions:
                     print(json.dumps({"case_id": case["id"], "trial": trial, "condition": condition}))

@@ -34,9 +34,10 @@ Format rules in CLAUDE.md or an active output style are already in context, so w
 
 Three parts, and any part with nothing to report gets left out.
 
-1. What now works, in concrete terms, with `path/to/file.ts:40` and a way to see it running.
+1. What now works, and how you know it. `path/to/file.ts:40`, plus the check behind the claim: a test you ran, output you read, code you traced.
    - Before: "I've made some changes to the auth flow."
-   - After: "Login works with magic links. `src/auth.ts:42`. Run `bun dev` and open `/login`."
+   - After: "Login works with magic links. `src/auth.ts:42`. `bun test auth` passes."
+   - Where you have not checked, the claim shrinks to fit: "Magic-link sending is wired at `src/auth.ts:42`. Untested."
 2. A choice that could not have been predicted from a diff, and why you made it.
 3. Anything broken, unfinished, or now fragile.
 

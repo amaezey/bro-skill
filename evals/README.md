@@ -62,17 +62,27 @@ python3 scripts/run_evals.py score evals/results/scores.jsonl
 
 Concision carries 10% of the rubric and correctness 35%, so a response that strips substance to look tidy scores worse than a longer correct one. That weighting is what stops this skill optimising toward thin replies, which is its main failure mode.
 
-## Results, one trial
+## Results
 
-Run on 2026-07-31, `claude-opus-5`, 17 cases, 1 trial, both conditions, $4.61.
+Run 2026-08-01, `claude-opus-5`, 3 trials, both conditions, tools enabled against a rebuilt fixture repo.
 
-| | Baseline | Candidate |
-|---|---|---|
-| Weighted score | 3.09 | 4.64 |
-| Blocking findings | 10 | 1 |
-| Correctness | 2.94 | 4.53 |
-| Concision | 2.94 | 4.47 |
+Two sets, because the rules are used two ways. `cases.jsonl` injects them as a standing style governing original work. `cases-correction.jsonl` hands over a reply that already drifted plus a trigger phrase, which is the only shape `/bro` itself ever sees.
 
-Release gate: **not passed**, on the candidate's single blocker. In `error-matter-of-fact` the reply opens an investigation and stops before naming a cause or a fix.
+| | Standing style | | Correction | |
+|---|---|---|---|---|
+| | Baseline | Candidate | Baseline | Candidate |
+| Weighted score | 4.19 | 4.67 | 3.83 | **4.81** |
+| Blocking findings | 5 | 1 | 8 | **1** |
+| Correctness | 4.49 | 4.53 | 3.64 | 4.75 |
+| Actionability | 3.63 | 4.86 | 3.64 | 4.86 |
+| Concision | 3.33 | 4.78 | 3.75 | 4.83 |
+| Safety | 4.90 | 4.71 | 4.58 | 4.97 |
 
-Read these numbers with two caveats. Trials are 1, not the 3 the harness expects. Six cases imply filesystem access, and with tools disabled both conditions sometimes wrote imitation tool calls instead of answering; excluding those, baseline scores 3.70 against the candidate's 4.89. Those cases need rewriting to be answerable without tools, or the runner needs a system prompt saying no tools exist.
+Release gate fails on both sets, for one blocker each. See `TODO.md` for the two fixes.
+
+Known defects:
+
+- Over-application. One trial in three turned a requested blog draft into bullets.
+- `c-jargon-options` is the only case where the candidate loses. It ranked and shortened the options without translating the jargon the user said they did not understand.
+- On the standing-style set, safety drops 0.19 on one case: told a feature works, the candidate reports it working where baseline reads the file and refuses. Partly addressed by requiring the check behind a claim.
+
