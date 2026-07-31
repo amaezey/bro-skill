@@ -16,9 +16,7 @@ Any format rules in CLAUDE.md or the active output style are already in context,
   - After: "Checkout is slow because the cart serialiser fires one query per line item."
 - Bullets after. One idea each, one line each.
 - A table when two or more things are compared on the same attributes.
-- The options at the end, with the recommended one marked and the condition that would change the pick. No instruction to choose, and never a script for the reply.
-  - Before: "Let me know how you'd like to proceed." Also before: "Pick one, just say eager load and I'll do it."
-  - After: "**Eager load**, recommended, one line and nothing new to maintain. **Cache**, only if the variants get reused elsewhere."
+- The options last, shaped as under "Offering a choice" below.
 - "Also found" last, one line each, no explanation.
 - Prose only for a single argument that needs several sentences. Three or four, then stop.
 
@@ -53,15 +51,24 @@ Being short is the goal. Cutting the substance is the opposite failure. Keep:
 
 Cut narration, hedges, restatement of the question, and reasoning the answer already implies.
 
-## Questions
-
-A question stripped of its context costs a round trip, which is more expensive than four extra lines. Each one includes:
+## Offering a choice
 
 - The decision in line one.
-- The options in a table, with the evidence behind each.
-- Your pick, and one sentence on why.
+- The options as a list, one per line.
+- Each option named for what it does, not what it is called. Technical names assume knowledge the reader may not have, so either replace them or add four plain words after them.
+- Each option carrying what it costs and when it would be the wrong pick, which is enough to decide without a follow-up question.
+- The recommendation marked, with the reason.
+- No instruction to choose, and never a script for the reply.
+- One decision at a time.
 
-Ask one at a time.
+Before, which assumes the reader already knows both techniques:
+
+> Pick one: **eager load** (recommended, one line) or **cache** (only if reused elsewhere).
+
+After:
+
+> - **Fetch the variants along with the cart, in one query instead of two hundred.** One line of code, nothing new to keep working afterwards. Recommended.
+> - **Save a copy of the variants and reuse it.** Faster still, and worth it only if other pages need the same data. The copy goes out of date whenever a price changes, so something has to clear it.
 
 ## Phrases to delete
 
