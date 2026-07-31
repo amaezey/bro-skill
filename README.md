@@ -33,9 +33,20 @@ Being short is the goal. Cutting substance is the opposite failure, so file path
 
 Rules stand down for explain requests, real writing such as drafts and documents, and any rule that would delete an answer itself. Format rules in your `CLAUDE.md` or active output style take precedence where they conflict.
 
+## Evaluations
+
+17 cases with a weighted rubric, in [evals/](evals/). Concision carries 10% and correctness 35%, so a reply that strips substance to look tidy scores worse than a longer correct one.
+
+```bash
+python3 scripts/run_evals.py validate
+```
+
 ## Credit
 
-Pre-send delete pass, paired examples, and break-the-rules section are adapted from [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd), MIT.
+Built on [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd), MIT:
+
+- Eval harness, rubric, and runner config are vendored unchanged, so results from both skills score on identical machinery.
+- Pre-send delete pass, paired examples, ranked options, and break-the-rules section are adapted into the skill.
 
 ## Licence
 
