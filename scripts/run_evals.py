@@ -191,6 +191,13 @@ def _parse_response(output: str, response_format: str) -> tuple[str, dict[str, A
         return output.strip(), {}, None
     if response_format == "claude-json":
         payload = json.loads(output)
+        if isinstance(payload, list):
+            # Newer Claude CLI releases emit an array of messages; the final
+            # object carrying "result" is the assistant's answer.
+            results = [item for item in payload if isinstance(item, dict) and "result" in item]
+            payload = results[-1] if results else (payload[-1] if payload else {})
+        if not isinstance(payload, dict):
+            payload = {}
         return (
             str(payload.get("result", "")).strip(),
             payload.get("usage", {}) or {},

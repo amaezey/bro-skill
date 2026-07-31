@@ -61,3 +61,18 @@ python3 scripts/run_evals.py score evals/results/scores.jsonl
 | correction | 3 | A reply that already drifted is resent in shape, with nothing said about the correction |
 
 Concision carries 10% of the rubric and correctness 35%, so a response that strips substance to look tidy scores worse than a longer correct one. That weighting is what stops this skill optimising toward thin replies, which is its main failure mode.
+
+## Results, one trial
+
+Run on 2026-07-31, `claude-opus-5`, 17 cases, 1 trial, both conditions, $4.61.
+
+| | Baseline | Candidate |
+|---|---|---|
+| Weighted score | 3.09 | 4.64 |
+| Blocking findings | 10 | 1 |
+| Correctness | 2.94 | 4.53 |
+| Concision | 2.94 | 4.47 |
+
+Release gate: **not passed**, on the candidate's single blocker. In `error-matter-of-fact` the reply opens an investigation and stops before naming a cause or a fix.
+
+Read these numbers with two caveats. Trials are 1, not the 3 the harness expects. Six cases imply filesystem access, and with tools disabled both conditions sometimes wrote imitation tool calls instead of answering; excluding those, baseline scores 3.70 against the candidate's 4.89. Those cases need rewriting to be answerable without tools, or the runner needs a system prompt saying no tools exist.
