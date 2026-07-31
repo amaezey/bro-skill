@@ -15,6 +15,8 @@ Restart Claude Code.
 
 Type `/bro`. It also fires on "you're waffling", "get to the point", "stop telling me your life story", and "too long".
 
+A real before and after sits in [examples/before-after.md](examples/before-after.md).
+
 ## What it enforces
 
 - Answer on line one, nothing in front of it.
