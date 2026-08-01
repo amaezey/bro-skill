@@ -4,19 +4,25 @@ A Claude Code plugin that resends a reply in scannable shape: answer on line one
 
 ## Install
 
-The repository is its own plugin marketplace. From Claude Code:
-
 ```
 /plugin marketplace add amaezey/bro-skill
 /plugin install bro@amaezey
 /reload-plugins
 ```
 
-Then turn on auto-update, so pushes to this repository reach your machine without a reinstall: run `/plugin`, open the **Marketplaces** tab, select **amaezey**, and choose **Enable auto-update**. Third-party marketplaces have it off by default. Claude Code checks shortly after a session starts and prompts you to run `/reload-plugins` when a new version has landed.
+The repo is its own marketplace. Nothing else to add.
 
-No `version` is set in the manifest, so every commit counts as a new version.
+### Auto-update
 
-Works the same in the terminal CLI and in the Claude desktop app's Code tab. In the desktop app you can also install without the terminal: **+** next to the prompt box, then **Plugins** > **Add plugin**.
+Off by default for third-party marketplaces. Turn it on once:
+
+`/plugin` → **Marketplaces** → **amaezey** → **Enable auto-update**
+
+Claude Code checks after each session start and prompts you to `/reload-plugins` when a new commit lands. The manifest sets no `version`, so every commit ships.
+
+### Desktop app
+
+Same commands in the Code tab. To skip the terminal: **+** beside the prompt box → **Plugins** → **Add plugin**.
 
 ## Use
 
