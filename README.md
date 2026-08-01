@@ -12,13 +12,13 @@ A Claude Code plugin that resends a reply in scannable shape: answer on line one
 
 ### Auto-update
 
-Off by default for third-party marketplaces. Turn it on once:
-
-`/plugin` → **Marketplaces** → **amaezey** → **Enable auto-update**
+Off by default. `/plugin` → **Marketplaces** → **amaezey** → **Enable auto-update**
 
 ### Desktop app
 
-`/plugin` does not run here. Use **+** beside the prompt box → **Plugins** → **Add plugin**, and paste `https://github.com/amaezey/bro-skill`.
+1. **+** beside the prompt box
+2. **Plugins** → **Add plugin**
+3. Paste `https://github.com/amaezey/bro-skill`
 
 ## Use
 
