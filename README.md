@@ -16,8 +16,6 @@ Off by default for third-party marketplaces. Turn it on once:
 
 `/plugin` → **Marketplaces** → **amaezey** → **Enable auto-update**
 
-Claude Code checks after each session start and prompts you to `/reload-plugins` when a new commit lands. The manifest sets no `version`, so every commit ships.
-
 ### Desktop app
 
 Same commands in the Code tab. To skip the terminal: **+** beside the prompt box → **Plugins** → **Add plugin**.
