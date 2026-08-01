@@ -4,35 +4,21 @@ A Claude Code plugin that resends a reply in scannable shape: answer on line one
 
 ## Install
 
-Merge into `~/.claude/settings.json`, then restart:
-
-```json
-{
-  "extraKnownMarketplaces": {
-    "amaezey": {
-      "source": { "source": "github", "repo": "amaezey/bro-skill" },
-      "autoUpdate": true
-    }
-  },
-  "enabledPlugins": {
-    "bro@amaezey": true
-  }
-}
-```
-
-`autoUpdate` pulls new commits on its own. Leave it out and you reinstall by hand.
-
-### Terminal instead
-
 ```
 /plugin marketplace add amaezey/bro-skill
 /plugin install bro@amaezey
 /reload-plugins
 ```
 
-Then `/plugin` → **Marketplaces** → **amaezey** → **Enable auto-update**.
+### Auto-update
 
-`/plugin` only runs in the Claude Code terminal. The desktop app rejects it.
+Off by default for third-party marketplaces. Turn it on once:
+
+`/plugin` → **Marketplaces** → **amaezey** → **Enable auto-update**
+
+### Desktop app
+
+`/plugin` does not run here. Use **+** beside the prompt box → **Plugins** → **Add plugin**, and paste `https://github.com/amaezey/bro-skill`.
 
 ## Use
 
