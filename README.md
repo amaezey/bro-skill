@@ -10,8 +10,6 @@ A Claude Code plugin that resends a reply in scannable shape: answer on line one
 /reload-plugins
 ```
 
-The repo is its own marketplace. Nothing else to add.
-
 ### Auto-update
 
 Off by default for third-party marketplaces. Turn it on once:
