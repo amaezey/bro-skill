@@ -1,19 +1,26 @@
 # bro
 
-A Claude Code skill that resends a reply in scannable shape: answer on line one, detail in bullets, comparisons in a table, ranked options at bottom.
+A Claude Code plugin that resends a reply in scannable shape: answer on line one, detail in bullets, comparisons in a table, ranked options at bottom.
 
 ## Install
 
-```bash
-git clone https://github.com/amaezey/bro-skill.git
-cp -r bro-skill/skills/bro ~/.claude/skills/
+The repository is its own plugin marketplace. From Claude Code:
+
+```
+/plugin marketplace add amaezey/bro-skill
+/plugin install bro@amaezey
+/reload-plugins
 ```
 
-Restart Claude Code.
+Then turn on auto-update, so pushes to this repository reach your machine without a reinstall: run `/plugin`, open the **Marketplaces** tab, select **amaezey**, and choose **Enable auto-update**. Third-party marketplaces have it off by default. Claude Code checks shortly after a session starts and prompts you to run `/reload-plugins` when a new version has landed.
+
+No `version` is set in the manifest, so every commit counts as a new version.
+
+Works the same in the terminal CLI and in the Claude desktop app's Code tab. In the desktop app you can also install without the terminal: **+** next to the prompt box, then **Plugins** > **Add plugin**.
 
 ## Use
 
-Type `/bro`. It also fires on "you're waffling", "get to the point", "stop telling me your life story", and "too long".
+Type `/bro:bro`. Plugin skills are always namespaced, so the plugin name comes first. It also fires on "you're waffling", "get to the point", "stop telling me your life story", and "too long".
 
 A real before and after sits in [examples/before-after.md](examples/before-after.md).
 

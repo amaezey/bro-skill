@@ -1,0 +1,29 @@
+{
+  "name": "amaezey",
+  "description": "Claude Code plugins by amaezey.",
+  "owner": {
+    "name": "amaezey",
+    "url": "https://github.com/amaezey"
+  },
+  "plugins": [
+    {
+      "name": "bro",
+      "source": "./",
+      "description": "Resends a reply in scannable shape: answer on line one, detail in bullets, comparisons in a table, ranked options at the bottom.",
+      "author": {
+        "name": "amaezey",
+        "url": "https://github.com/amaezey"
+      },
+      "homepage": "https://github.com/amaezey/bro-skill",
+      "repository": "https://github.com/amaezey/bro-skill",
+      "license": "MIT",
+      "category": "productivity",
+      "tags": [
+        "output-style",
+        "concision",
+        "formatting",
+        "writing"
+      ]
+    }
+  ]
+}

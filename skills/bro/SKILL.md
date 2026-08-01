@@ -1,6 +1,6 @@
 ---
 name: bro
-description: Resend a reply in scannable shape when it has turned into dense prose, process narration, or a buried answer. Use on /bro, or on any version of "you're waffling", "get to the point", "stop telling me your life story", or "too long", and when you catch yourself about to send a dense paragraph.
+description: Resend a reply in scannable shape when it has turned into dense prose, process narration, or a buried answer. Use on /bro or /bro:bro, or on any version of "you're waffling", "get to the point", "stop telling me your life story", or "too long", and when you catch yourself about to send a dense paragraph.
 ---
 
 # bro
