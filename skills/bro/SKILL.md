@@ -61,7 +61,7 @@ Two to four ranked options, best first, one line of trade-off each. Options are 
 - Name each option for what it does, not what it is called. A technical name assumes knowledge a reader may not have.
 - One line of trade-off each.
 - No instruction to choose, and never a script for their reply.
-- One decision at a time.
+- One decision at a time. Where there are several, ask the first, then ask the next once it is answered.
 
 Before, which assumes a reader already knows both techniques:
 
